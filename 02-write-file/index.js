@@ -31,12 +31,12 @@ readline.on('line', function(input) {
   (input.includes('exit')) ? exitProcess() : stream.write(`${input}\n`);
 });
 
-// The 'SIGINT' even≠t is emitted whenever the input stream receives a Ctrl+C input, known typically as SIGINT. If there are no 'SIGINT' event listeners registered when the input stream receives a SIGINT, the 'pause' event will be emitted.
-readline.on('SIGINT', exitProcess);
-
-function exitProcess() {
+const exitProcess = () => {
   // The rl.close() method closes the InterfaceConstructor instance and relinquishes control over the input and output streams. 
   readline.close();
   process.stdout.write(`Nice! Thanks for your answers!\n`);
   stream.end();
 }
+
+// The 'SIGINT' even≠t is emitted whenever the input stream receives a Ctrl+C input, known typically as SIGINT. If there are no 'SIGINT' event listeners registered when the input stream receives a SIGINT, the 'pause' event will be emitted.
+readline.on('SIGINT', exitProcess);
