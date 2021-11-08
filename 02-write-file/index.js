@@ -1,4 +1,4 @@
-/**
+/** 20 баллов
  * ✔️ Внутри папки 02-write-file находится 1 файл index.js
  * ✔️ При выполнении команды node 02-write-file в папке 02-write-file создаётся текстовый файл, а в консоль выводится приглашение на ввод текста
  * ✔️ После ввода текста в каталоге 02-write-file введённый текст должен быть записан в созданный ранее файл. Процесс не завершается и ждёт нового ввода.
@@ -25,18 +25,17 @@ const readline = require('readline').createInterface({
 
 process.stdout.write(`Hello! Please describe yout feelings about the RS School:\n`);
 
-// The 'line' event is emitted whenever the input stream receives an end-of-line input. This usually occurs when the user presses Enter or Return.
+// Событие 'line' испускается всякий раз, когда поток ввода получает ввод конца строки.
 readline.on('line', function(input) { 
-  // console.log(typeof input);
   (input.includes('exit')) ? exitProcess() : stream.write(`${input}\n`);
 });
 
 const exitProcess = () => {
-  // The rl.close() method closes the InterfaceConstructor instance and relinquishes control over the input and output streams. 
+  // Метод rl.close() закрывает экземпляр InterfaceConstructor и передает контроль над входным и выходным потоками. 
   readline.close();
   process.stdout.write(`Nice! Thanks for your answers!\n`);
   stream.end();
 }
 
-// The 'SIGINT' even≠t is emitted whenever the input stream receives a Ctrl+C input, known typically as SIGINT. If there are no 'SIGINT' event listeners registered when the input stream receives a SIGINT, the 'pause' event will be emitted.
+// Событие 'SIGINT' испускается всякий раз, когда входной поток получает входной сигнал Ctrl+C (=SIGINT). Если нет зарегистрированных слушателей события 'SIGINT', когда входной поток получает SIGINT, будет выдано событие 'pause'.
 readline.on('SIGINT', exitProcess);
