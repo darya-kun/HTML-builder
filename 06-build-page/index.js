@@ -28,12 +28,15 @@ const createFolder = async () => {
 }
 
 // Добавляем HTML
-// const mergeHTML = async () => {
-//   try {
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+const mergeHTML = async () => {
+  try {
+    const templateFile = path.join(__dirname, 'template.html');
+    const htmlFile = await fs.readFile(templateFile, {encoding:"utf-8"});
+    await fs.writeFile(path.join(destFolder, 'index.html'), htmlFile);
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // Добавляем css
 const mergeStyles = async () => {
@@ -63,6 +66,7 @@ const copyDirectory = async (srcFolder, destFolder) => {
     for (const file of srcFiles) {
       const srcFile = path.join(srcFolder, file.name);
       const destFile = path.join(destFolder, file.name);
+      // console.log(destFile);
       if (file.isFile()) {
         await fs.copyFile(srcFile, destFile);
       } else {
@@ -77,7 +81,7 @@ const copyDirectory = async (srcFolder, destFolder) => {
 const buildPage = async () => {
   try {
     createFolder();
-    // await mergeHTML();
+    await mergeHTML();
     await mergeStyles();
     await copyDirectory(path.join(__dirname, 'assets'), path.join(__dirname, 'project-dist', 'assets'));
     console.log('Congrats! Your page was created successfully!');
