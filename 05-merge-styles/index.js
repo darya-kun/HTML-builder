@@ -1,4 +1,4 @@
-/**
+/** 20 баллов
  * ✔️ После завершения работы скрипта в папке project-dist должен находиться файл bundle.css содержащий стили из всех файлов папки styles.
  * ✔️ При добавлении/удалении/изменении файлов стилей в папке styles и повторном запуске скрипта файл bundle.css перезаписывается и содержит актуальные стили.
  * ✔️ Любые файлы имеющие расширение отличное от css или директории игнорируются.
@@ -12,7 +12,7 @@
 
 const fs = require('fs/promises');
 const path = require('path');
-const stylesFolder = path.join(__dirname, 'test-files/styles');
+const stylesFolder = path.join(__dirname, 'styles');
 const destFolder = path.join(__dirname, 'project-dist');
 
 const mergeStyles = async () => {
