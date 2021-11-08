@@ -12,8 +12,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 
-const duplicateDirectory = async () => {
-
+const copyDirectory = async () => {
   try {
     const srcFolder = path.join(__dirname, 'files');
     const destFolder = path.join(__dirname, 'files-copy');
@@ -47,4 +46,4 @@ const duplicateDirectory = async () => {
   }
 }
 
-duplicateDirectory();
+copyDirectory();
