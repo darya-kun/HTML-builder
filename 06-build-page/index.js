@@ -1,4 +1,4 @@
-/**
+/** 50 баллов
  * ✔️ После завершения работы скрипта должна быть создана папка project-dist
  * ✔️️ В папке project-dist должны находиться файлы index.html и style.css
  * ✔️ В папке project-dist должна находиться папка assets являющаяся точной копией папки assets находящейся в 06-build-page
@@ -27,7 +27,7 @@ const createFolder = async () => {
   }
 }
 
-// Добавляем HTML
+// Добавляем HTML шаблоны
 const mergeHTML = async () => {
   try {
     const templateFile = path.join(__dirname, 'template.html');
@@ -53,7 +53,7 @@ const mergeHTML = async () => {
   }
 }
 
-// Добавляем css
+// Добавляем css стили
 const mergeStyles = async () => {
   const stylesFolder = path.join(__dirname, 'styles');
   try {
